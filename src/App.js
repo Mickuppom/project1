@@ -1,25 +1,14 @@
-import { useState } from "react";
-import HomeScreen from "./screen/HomeScreen";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Home from './screen/home';
 
 function App() {
-  const [count, setCount,] = useState(0);
-
-  const addCount = (type = "add") => {
-    if (type === "add") {
-      setCount(count + 1);
-    }
-    else {
-      setCount(count - 1);
-    }
-  }
-  return (
-    <div>
-      <HomeScreen>3.</HomeScreen>
-      <p>You did it {count} time(s)!</p>
-      <button onClick={() => addCount("add")}>+1</button>
-      <button onClick={() => addCount("minus")}>-1</button>
-    </div>
-  );
+  return <div>
+    <Router>
+      <Switch>
+        <Route path="/" component={Home} />
+      </Switch>
+    </Router>
+  </div>
 }
 
 export default App;
